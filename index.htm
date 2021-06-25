@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="backdrop">
+    </div>
+    <div class="addModal">
+        <label for="name">Name of Item</label>
+        <input type="text" name="name" id="itemName">
+        <label for="description">Description of Item</label>
+        <input type="textbox" name="description" id="itemDescription">
+        <label for="categories">Category of Item</label>
+        <select name="categories" id="itemCategories">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+        <label for="quantity">Quantity</label>
+        <input type="number" name="quantity" id="itemQuantity">
+        <div class="action">
+            <button class="cancelAdd">Cancel</button>
+            <button id="add"  >Add <i class="fas fa-plus"></i></button>
+        </div>
+    </div>
+
+    <div id="updateItem" class="addModal">
+        <label for="name">Name of Item</label>
+        <input type="text" name="name" id="updateItemName">
+        <label for="description">Description of Item</label>
+        <input type="textbox" name="description" id="updateItemDescription">
+        <label for="categories">Category of Item</label>
+        <select name="categories" id="updateItemCategory">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+        <label for="quantity">Quantity</label>
+        <input type="number" name="quantity" id="updateItemQuantity">
+        <div class="action">
+            <button class="cancelUpdate">Cancel</button>
+            <button id="update"  onClick="update()">Update <i class="fas fa-plus"></i></button>
+        </div>
+    </div>
+    
+    <div class="mainContainer">
+
+        <div class="sideNav">
+            <a href="index.htm" >Dashboard <br><i class="fas fa-binoculars"></i></a>
+            <a href="additems.htm" >Add Item <br><i class="fas fa-plus"></i></a>
+            <a href="products.htm">Products <br><i class="fas fa-sitemap"></i></a>
+            <a href="updateItem.htm">Update Item <br><i class="fas fa-edit"></i></a>
+            <a href="remove.htm">Remove Items <br><i class="far fa-trash-alt"></i></a>
+        </div>
+
+        <div class="bodyContainer">
+            
+            <div class="summary">
+                <div class="totalItems">Total Number of Items <span id="totalItems">10</span></div>
+                <div class="stockItems">Items in Stock<span id="itemStock"> 10</span></div>
+                <div class="totalCategories">Total number of Categories<span id="numberOfCategories">10</span></div>
+            </div>
+
+            <div class="table">
+
+                <div class="addBtn"><button class="addItem" id="addBtn" onclick="addItemHandler()">Add Item <i class="fas fa-plus"></i> </button></div>
+
+                <div class="tableContent">
+                    <div id="noItemCover" class="noItems">
+                        <h1>There is no Inventory</h1>
+                        <img src="emptyinventory.jpg" alt="" width="100%">
+                    </div>
+
+                    <table id="itemTable">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableItems">
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div>
+    <script src="scripts/add.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+</html>
